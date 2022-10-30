@@ -1,0 +1,12 @@
+$primary_1: blue;
+
+.test {
+  color: $primary_1;
+}
+.active {
+  color: red;
+}
+
+.passive {
+  color: white;
+}

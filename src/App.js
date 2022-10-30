@@ -1,25 +1,86 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import {
+  Routes,
+  Route,
+  Outlet,
+  Link,
+  useMatch,
+  useResolvedPath,
+  NavLink,
+} from "react-router-dom";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MyRouters></MyRouters>
+    </div>
+  );
+}
+function MyRouters() {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="*" element={<NoMatch />} />
+        </Route>
+      </Routes>
+    </>
+  );
+}
+function Layout() {
+  return (
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <NavLink
+              className={(navData) => (navData.isActive ? "active" : "")}
+              to="/"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={(navData) => (navData.isActive ? "active" : "")}
+              to="/about"
+            >
+              About
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+      <hr />
+      <Outlet />
+    </div>
+  );
+}
+function Home() {
+  return (
+    <div>
+      <h1>Home</h1>
     </div>
   );
 }
 
-export default App;
+function About() {
+  return (
+    <div>
+      <h1>About</h1>
+    </div>
+  );
+}
+
+function NoMatch() {
+  return (
+    <div>
+      <h1>Nothing to see here!</h1>
+      <p>
+        <Link to="/">Go to the home page</Link>
+      </p>
+    </div>
+  );
+}
