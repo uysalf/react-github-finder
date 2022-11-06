@@ -1,3 +1,5 @@
+website: http://uysalf.github.io/react-github-finder
+
 npm install gh-pages --save-dev
 "homepage": "http://uysalf.github.io/react-github-finder",
 scripts:
