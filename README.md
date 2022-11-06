@@ -1,8 +1,8 @@
 npm install gh-pages --save-dev
 "homepage": "http://uysalf.github.io/react-github-finder",
 scripts:
-"start": "react-scripts start",
 "predeploy": "npm run build",
+"deploy": "gh-pages -d build",
 
 npm run deploy  
 git save changes
