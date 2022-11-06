@@ -1,3 +1,12 @@
+npm install gh-pages --save-dev
+"homepage": "http://uysalf.github.io/react-github-finder",
+scripts:
+"start": "react-scripts start",
+"predeploy": "npm run build",
+
+npm run deploy  
+git save changes
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
